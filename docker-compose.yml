@@ -1,0 +1,34 @@
+version: '2'
+services:
+  ansible:
+    image: ansible-image7
+    hostname: ansible
+    tty: true
+    container_name: ansible
+    networks: 
+      - allow_ssh
+    ports:
+      - 127.0.0.1:2221:22
+  
+  host1:
+    image: centos:centos7
+    hostname: host1_centos
+    tty: true
+    container_name: host_centos
+    networks: 
+      - allow_ssh
+    ports:
+      - 2222:80
+
+  host2:
+    image: ubuntu:latest
+    hostname: host2_ubuntu
+    tty: true
+    container_name: host_ubuntu
+    networks: 
+      - allow_ssh
+    ports:
+      - 2223:80
+
+networks:
+  allow_ssh:
