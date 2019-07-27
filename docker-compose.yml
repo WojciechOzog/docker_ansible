@@ -11,24 +11,24 @@ services:
       - 127.0.0.1:2221:22
   
   host1:
-    image: centos:centos7
+    image: host-centos
     hostname: host1_centos
     tty: true
     container_name: host_centos
     networks: 
       - allow_ssh
     ports:
-      - 2222:80
+      - 127.0.0.1:2222:22
 
   host2:
-    image: ubuntu:latest
+    image: host-ubuntu
     hostname: host2_ubuntu
     tty: true
     container_name: host_ubuntu
     networks: 
       - allow_ssh
     ports:
-      - 2223:80
+      - 127.0.0.1:2223:22
 
 networks:
   allow_ssh:
