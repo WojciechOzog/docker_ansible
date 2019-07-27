@@ -1,5 +1,8 @@
 FROM ubuntu:18.04
 
+RUN apt update
+RUN apt install openssh-server -y; apt clean 
+
 # create ssh files
 RUN mkdir /root/.ssh
 RUN echo $'-----BEGIN RSA PRIVATE KEY-----\n\
